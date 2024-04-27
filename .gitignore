@@ -1,0 +1,27 @@
+# Dependency directories
+node_modules/
+
+# Compiled JavaScript files
+dist/
+
+# Environment configuration files
+.env
+
+# Operating System generated files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+*.sublime-workspace
+*.sublime-project
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
