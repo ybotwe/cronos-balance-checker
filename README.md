@@ -22,6 +22,8 @@
 
 # Testing API Endpoints
 
+## Using CURL
+
 1. **Balance Endpoint:**
 
    - Endpoint: `GET /balance/:network/:address`
@@ -47,3 +49,29 @@
      "balance": "500.25 USDT"
      }
      ```
+
+## Using Postman
+
+To test the API using Postman:
+
+1. **Open Postman**:
+
+- Start by launching the Postman application on your device.
+
+2. **Create a New Request**:
+
+- Click on the "New" button and select "HTTP Request".
+
+3. **Set Up Request Details**:
+
+- For the URL, input `http://localhost:3000/balance/<network>/<address_of_choice>` for testing the balance endpoint or the respective URL for other endpoints.
+- Set the method to `GET`.
+
+4. **Send the Request**:
+
+- Click the "Send" button to execute the request.
+- Review the response in the lower section of the Postman interface.
+
+5. **Modify and Test Different Endpoints**:
+
+- Change the URL and parameters as needed to test different endpoints and cases.
