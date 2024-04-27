@@ -19,12 +19,12 @@ async function balance(req: Request, res: Response): Promise<void> {
 async function tokenBalance(req: Request, res: Response): Promise<void> {
   const { network, address, tokenAddress } = req.params;
   try {
-    const balance = await getTokenBalance(network, address, tokenAddress);
+    const {balance, symbol} = await getTokenBalance(network, address, tokenAddress);
     res.send({
       address,
       tokenAddress,
       network,
-      balance,
+      balance: balance + ` ${symbol}`,
     });
   } catch (error) {
     console.error(error);
