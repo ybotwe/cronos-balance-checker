@@ -12,7 +12,12 @@ async function balance(req: Request, res: Response): Promise<void> {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error fetching balance");
+    if (error instanceof Error) {
+        res.status(500).send(`Error fetching balance: ${error.message}`);
+      } else {
+        // If it's not an Error, handle it as a generic error without specific messages
+        res.status(500).send("Error fetching balance");
+      }
   }
 }
 
@@ -28,7 +33,12 @@ async function tokenBalance(req: Request, res: Response): Promise<void> {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error fetching token balance");
+    if (error instanceof Error) {
+        res.status(500).send(`Error fetching token balance: ${error.message}`);
+      } else {
+        // If it's not an Error, handle it as a generic error without specific messages
+        res.status(500).send("Error fetching token balance");
+      }
   }
 }
 

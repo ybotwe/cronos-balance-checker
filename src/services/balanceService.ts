@@ -19,6 +19,9 @@ const crc20Abi = [
 // Get CRO balance of an address
 async function getBalance(network: string, address: string): Promise<string> {
   const provider = network === "testnet" ? testnetProvider : mainnetProvider;
+  if (!ethers.isAddress(address)) {
+    throw new Error("Invalid address format");
+  }
   try {
     const balance = await provider.getBalance(address);
     return ethers.formatEther(balance);
@@ -35,6 +38,12 @@ async function getTokenBalance(
   tokenAddress: string
 ): Promise<TokenBalance> {
   const provider = network === "testnet" ? testnetProvider : mainnetProvider;
+  if (!ethers.isAddress(address)) {
+    throw new Error("Invalid address format");
+  }
+  if (!ethers.isAddress(tokenAddress)) {
+    throw new Error("Invalid token address format");
+  }
   try {
     const tokenContract = new ethers.Contract(tokenAddress, crc20Abi, provider);
     const [balance, decimals, symbol] = await Promise.all([
