@@ -67,6 +67,7 @@ To test the API using Postman:
 3. **Set Up Request Details**:
 
 - For the URL, input `http://localhost:3000/balance/<network>/<address_of_choice>` for testing the balance endpoint or the respective URL for other endpoints.
+- Network parameter can be either `mainnet` or `testnet`.
 - Set the method to `GET`.
 - Add the header `x-api-key` with the value of your API key you set in the `.env` file.
 
