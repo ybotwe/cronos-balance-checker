@@ -13,6 +13,7 @@
      CRONOS_MAIN_RPC=<mainnet_rpc_url>
      CRONOS_TEST_RPC=<testnet_rpc_url>
      PORT=<desired_port_number>
+     API_KEY=<your_api_key>
    ```
 
 3. **Running the Application:**
@@ -27,7 +28,8 @@
 1. **Balance Endpoint:**
 
    - Endpoint: `GET /balance/:network/:address`
-   - Example Request: `curl http://localhost:3000/balance/testnet/0x123456789`
+   - Network parameter can be either `mainnet` or `testnet`.
+   - Example Request: `curl -H "x-api-key: your_api_key" http://localhost:3000/balance/testnet/0x123456789`
    - Example Response:
      ```
      {
@@ -39,7 +41,7 @@
 
 2. **Token Balance Endpoint:**
    - Endpoint: `GET /token-balance/:network/:address/:tokenAddress`
-   - Example Request: `curl http://localhost:3000/token-balance/mainnet/0x987654321/0xabcde123`
+   - Example Request: `curl -H "x-api-key: your_api_key" http://localhost:3000/token-balance/mainnet/0x987654321/0xabcde123`
    - Example Response:
      ```
      {
@@ -66,6 +68,7 @@ To test the API using Postman:
 
 - For the URL, input `http://localhost:3000/balance/<network>/<address_of_choice>` for testing the balance endpoint or the respective URL for other endpoints.
 - Set the method to `GET`.
+- Add the header `x-api-key` with the value of your API key you set in the `.env` file.
 
 4. **Send the Request**:
 
